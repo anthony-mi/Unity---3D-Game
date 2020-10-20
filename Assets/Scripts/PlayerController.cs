@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    ShootComponent shootComponent;
-    ParticleSystem particleSystem;
+    [SerializeField] int damage = 10;
+    [SerializeField]  ShootComponent shootComponent;
 
+    new ParticleSystem particleSystem;
     new Rigidbody rigidbody;
     new Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        shootComponent = GetComponent<ShootComponent>();
         particleSystem = GetComponentInChildren<ParticleSystem>();
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
@@ -45,9 +45,19 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 dirToCursor.y = transform.position.y;
-                shootComponent.Shoot(dirToCursor);
+                shootComponent.Shoot(transform.position, dirToCursor);
                 particleSystem.Play();
             }
         }
+    }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    public ShootComponent GetShootComponent()
+    {
+        return shootComponent;
     }
 }

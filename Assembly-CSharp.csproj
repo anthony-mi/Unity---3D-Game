@@ -59,6 +59,8 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ShootComponent.cs" />
+    <Compile Include="Assets\Scripts\HitsHandler.cs" />
+    <Compile Include="Assets\Scripts\IHitable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
